@@ -10,6 +10,7 @@
 ![](https://github.com/ypwhs/msp430-ymd/blob/master/IMG_20150419_145957.jpg)
 ![](https://github.com/ypwhs/msp430-ymd/blob/master/IMG_20150419_150005.jpg)
 ![](https://github.com/ypwhs/msp430-ymd/blob/master/IMG_20150419_150006.jpg)
+
     如图所示,它支持闰年判断,在2000年2月会有29天
     下图则是今天的日期
 ![](https://github.com/ypwhs/msp430-ymd/blob/master/IMG_20150419_150417.jpg)
