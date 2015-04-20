@@ -102,18 +102,12 @@ void loop() {
   a=b;
   while(a){
     shiftOut(aDIO, aSCK, MSBFIRST, 1 << (7-i));
+    //if((m<10&&i==3) | (d<10&&i==1))shiftOut(aDIO, aSCK, MSBFIRST, 0xFF);else 
     shiftOut(aDIO, aSCK, MSBFIRST, t[a%10]);
     out();
     a/=10;
     i++;
   }
 }
-
-
-
-
-
-
-
 
 
