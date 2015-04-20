@@ -8,14 +8,13 @@
 #define SW2 PUSH1
 
 #include <stdint.h>
-#include <stdbool.h>
 #include "inc/tm4c123gh6pm.h"
 #include "driverlib/sysctl.h"
 
 unsigned char t[10] = {
   0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
 
-double bei = 1000/(2.5/2.5);
+int oneday = 1000;
 void setup() {
   //SysCtlClockSet(SYSCTL_SYSDIV_64 | SYSCTL_USE_PLL | SYSCTL_OSC_MAIN | SYSCTL_XTAL_16MHZ);
   //2.5分频，使用PLL，外部晶振16M，system时钟源选择 main osc。
@@ -46,7 +45,7 @@ int y,m,d;
 int button = 1;
 void loop() {
   now = millis();
-  if(now-last>bei){
+  if(now-last>oneday){
     Serial.println(b);
     last=now;
     b++;
@@ -97,13 +96,16 @@ void loop() {
   a=b;
   while(a){
     shiftOut(aDIO, aSCK, MSBFIRST, 1 << (7-i));
-    //if((m<10&&i==3) | (d<10&&i==1))shiftOut(aDIO, aSCK, MSBFIRST, 0xFF);else 
-    if(i==0 | i==2 | i ==4)shiftOut(aDIO, aSCK, MSBFIRST, 0X80 + t[a%10]);else 
-    shiftOut(aDIO, aSCK, MSBFIRST, t[a%10]);
+    if(i==0 | i==2 | i ==4)
+      shiftOut(aDIO, aSCK, MSBFIRST, 0X80 + t[a%10]);
+    else 
+      shiftOut(aDIO, aSCK, MSBFIRST, t[a%10]);
     out();
     a/=10;
     i++;
   }
 }
+
+
 
 
