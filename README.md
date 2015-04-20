@@ -19,5 +19,5 @@
 
     这里我们同时也支持了TM4C123的Launchpad
     接线方法为:PE_1,PE_2,PE_3分别接数码管的DIO,SCK,RCK
-    按钮也改为了S
+    按钮也改为了PUSH1,PUSH2
 ![](https://github.com/ypwhs/msp430-ymd/blob/master/IMG_20150419_145957.jpg)
