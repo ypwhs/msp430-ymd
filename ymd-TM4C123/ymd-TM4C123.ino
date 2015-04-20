@@ -10,12 +10,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "inc/tm4c123gh6pm.h"
-#include "inc/hw_memmap.h"
-#include "inc/hw_types.h"
 #include "driverlib/sysctl.h"
-#include "driverlib/interrupt.h"
-#include "driverlib/gpio.h"
-#include "driverlib/timer.h"
 
 unsigned char t[10] = {
   0xc0, 0xf9, 0xa4, 0xb0, 0x99, 0x92, 0x82, 0xf8, 0x80, 0x90};
@@ -103,6 +98,7 @@ void loop() {
   while(a){
     shiftOut(aDIO, aSCK, MSBFIRST, 1 << (7-i));
     //if((m<10&&i==3) | (d<10&&i==1))shiftOut(aDIO, aSCK, MSBFIRST, 0xFF);else 
+    if(i==0 | i==2 | i ==4)shiftOut(aDIO, aSCK, MSBFIRST, 0X80 + t[a%10]);else 
     shiftOut(aDIO, aSCK, MSBFIRST, t[a%10]);
     out();
     a/=10;
