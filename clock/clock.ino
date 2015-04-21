@@ -25,6 +25,8 @@ void loop()
 //  if(dir<0)dir=180;
 //  if(dir>180)dir=0;
 //  myservo.write(dir);
+//  delay(10);
+
   int i;
   for(i=0;i<60;i++){
     
