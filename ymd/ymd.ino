@@ -33,8 +33,7 @@ int i;
 long last=0,now=0;
 int lightPin=0;
 long a=0,b=20000101;
-int yue[]={
-  0,31,28,31,30,31,30,31,31,30,31,30,31};
+int yue[]={0,31,28,31,30,31,30,31,31,30,31,30,31};
 int y,m,d;
 int button = 1;
 void loop() {
@@ -99,11 +98,3 @@ void loop() {
     i++;
   }
 }
-
-
-
-
-
-
-
-
